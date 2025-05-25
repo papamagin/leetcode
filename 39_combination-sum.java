@@ -6,7 +6,6 @@ class Solution {
         if (candidates.length == 1 && candidates[0] > target) {
             return List.of();
         }
-        Arrays.sort(candidates);
         backtrack(0, 0, new ArrayList<>(), candidates, target);
         return res;
     }
