@@ -4,6 +4,9 @@ class Solution {
     public boolean exist(char[][] board, String word) {
         int n = board.length;
         int m = board[0].length;
+        if (word.length() > n * m) {
+            return false;
+        }
         if (n == 1 && m == 1 && word.length() == 1) {
             return board[0][0] == word.charAt(0);
         }
