@@ -6,22 +6,20 @@ class Solution {
             for (int j = 0; j < grid[0].length; j++) {
                 if (grid[i][j] == '1') {
                     res++;
-                    dfs(grid, i, j);
+                    bfs(i, j, grid);
                 }
             }
         }
-
         return res;
     }
-
-    private void dfs(char[][] grid, int i, int j) {
-        if ( i < 0 || i >= grid.length || j < 0 || j >= grid[0].length || grid[i][j] == '0') {
+    private void bfs(int i, int j, char[][] grid) {
+        if (i < 0 || i >= grid.length || j < 0 || j >= grid[0].length || grid[i][j] == '0') {
             return;
         }
         grid[i][j] = '0';
-        dfs(grid, i - 1, j);
-        dfs(grid, i + 1, j);
-        dfs(grid, i, j - 1);
-        dfs(grid, i, j + 1);
+        bfs(i - 1, j, grid);
+        bfs(i + 1, j, grid);
+        bfs(i, j - 1, grid);
+        bfs(i, j + 1, grid);
     }
 }
